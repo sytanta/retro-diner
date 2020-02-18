@@ -107,15 +107,15 @@ exports.createPages = async ({ graphql, actions }) => {
 /**
  * Generate menu pdf files
  */
-exports.onPostBuild = async ({ graphql }, pluginOptions) => {
-  const allMenus = await graphql(AllMenusQuery)
-  const menuSlugs = allMenus.data.allMarkdownRemark.edges.map(({ node }) => {
-    return node.frontmatter.slug
-  })
+// exports.onPostBuild = async ({ graphql }, pluginOptions) => {
+//   const allMenus = await graphql(AllMenusQuery)
+//   const menuSlugs = allMenus.data.allMarkdownRemark.edges.map(({ node }) => {
+//     return node.frontmatter.slug
+//   })
 
-  const promises = menuSlugs.map(slug => printPDF(slug))
-  await Promise.all(promises)
-}
+//   const promises = menuSlugs.map(slug => printPDF(slug))
+//   await Promise.all(promises)
+// }
 
 // async function printPDF(pageName) {
 //   const browser = await puppeteer.launch({ headless: true })
