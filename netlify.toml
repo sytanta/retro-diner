@@ -3,6 +3,6 @@
 
 [build]
   base="/"
-  command = "npm build"
+  command = "npm run-script build"
   functions = "functions"
   publish = "public"
