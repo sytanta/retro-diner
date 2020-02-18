@@ -117,25 +117,25 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
   await Promise.all(promises)
 }
 
-async function printPDF(pageName) {
-  const browser = await puppeteer.launch({ headless: true })
-  const page = await browser.newPage()
-  const htmlPath = path.join("./", "public", "menu", pageName, "index.html")
+// async function printPDF(pageName) {
+//   const browser = await puppeteer.launch({ headless: true })
+//   const page = await browser.newPage()
+//   const htmlPath = path.join("./", "public", "menu", pageName, "index.html")
 
-  const contentHtml = fs.readFileSync(htmlPath, "utf8")
-  await page.setContent(contentHtml, { waitUntil: "networkidle2" })
+//   const contentHtml = fs.readFileSync(htmlPath, "utf8")
+//   await page.setContent(contentHtml, { waitUntil: "networkidle2" })
 
-  // Hide header, footer, and download button
-  await page.addStyleTag({
-    content: `header, footer { display: none }`,
-  })
+//   // Hide header, footer, and download button
+//   await page.addStyleTag({
+//     content: `header, footer { display: none }`,
+//   })
 
-  await page.pdf({
-    format: "A4",
-    margin: { top: "1cm", bottom: "1cm", left: "0.5cm", right: "0.5cm" },
-    path: path.join("./", "public", "download", `${pageName}.pdf`),
-  })
+//   await page.pdf({
+//     format: "A4",
+//     margin: { top: "1cm", bottom: "1cm", left: "0.5cm", right: "0.5cm" },
+//     path: path.join("./", "public", "download", `${pageName}.pdf`),
+//   })
 
-  await browser.close()
-  return
-}
+//   await browser.close()
+//   return
+// }
