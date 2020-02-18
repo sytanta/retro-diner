@@ -1,0 +1,7 @@
+[dev]
+  command = "npm start"
+
+[build]
+  command = "npm build"
+  functions = "functions"
+  publish = "public"

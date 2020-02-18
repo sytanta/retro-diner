@@ -1,7 +1,9 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+const React = require("react")
+const ReactDOM = require("react-dom")
 
-// You can delete this file if you're not using it
+// Import global styles here
+// require("./src/css/global.css")
+
+// Expose React and ReactDOM as globals for console playground
+window.React = React
+window.ReactDOM = ReactDOM

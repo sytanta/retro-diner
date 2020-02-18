@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Lobster";
+  src: url("../../static/fonts/lobster-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../../static/fonts/nunito-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Limelight";
+  src: url("../../static/fonts/limelight-webfont.woff") format("woff");
+}
+
+body {
+  background: url("../../static/images/bg-body.jpg");
+  box-sizing: border-box;
+  line-height: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+body .max-width {
+  margin: 0 auto;
+  width: 960px;
+}
+
+body .page-header,
+body .title {
+  color: #1b6568;
+  font-family: "Lobster";
+  font-size: 36px;
+  font-weight: normal;
+}
+
+body .featured p {
+  color: #4c1407;
+  font-family: "Nunito";
+  font-size: 16px;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media (max-width: 970px) {
+  body .max-width {
+    padding: 0 20px;
+    width: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  body .max-width {
+    padding: 0 10px;
+  }
+}
