@@ -120,7 +120,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
 async function printPDF(pageName) {
   const browser = await puppeteer.launch({ headless: true })
   const page = await browser.newPage()
-  const htmlPath = path.join("./", "public", "menu", pageName, "index.html")
+  const htmlPath = path.join(__dirname, "./", "public", "menu", pageName, "index.html")
 
   const contentHtml = fs.readFileSync(htmlPath, "utf8")
   await page.setContent(contentHtml, { waitUntil: "networkidle2" })
@@ -133,7 +133,7 @@ async function printPDF(pageName) {
   await page.pdf({
     format: "A4",
     margin: { top: "1cm", bottom: "1cm", left: "0.5cm", right: "0.5cm" },
-    path: path.join("./", "public", "download", `${pageName}.pdf`),
+    path: path.join(__dirname, "./", "public", "download", `${pageName}.pdf`),
   })
 
   await browser.close()
