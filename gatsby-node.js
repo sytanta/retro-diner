@@ -137,6 +137,6 @@ async function printPDF(pageName) {
     path: path.join(__dirname, "public", "download", `${pageName}.pdf`),
   })
 
-  await browser.close()
+  await browser.close( )
   return
 }
