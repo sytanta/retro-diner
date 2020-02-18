@@ -1,8 +1,0 @@
-[dev]
-  command = "npm start"
-
-[build]
-  base="/"
-  command = "npm build"
-  functions = "functions"
-  publish = "public"
