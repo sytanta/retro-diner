@@ -85,7 +85,6 @@ const NavContainer = styled.nav`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
-    justify-content: end;
     width: 100%;
 
     ul.navigation {
@@ -132,6 +131,9 @@ const NavContainer = styled.nav`
       display: block;
       line-height: ${navItemHeight}px;
       padding-right: ${spacing.sm}px;
+      position: absolute;
+      top: 0;
+      right: 0;
       z-index: 11;
     }
   }
