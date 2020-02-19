@@ -97,17 +97,17 @@ const NavContainer = styled.nav`
       li {
         float: none;
         height: ${navItemHeight}px;
-        padding-left: ${spacing.md}px;
 
         a {
           display: block;
+          padding-left: ${spacing.md}px;
           line-height: ${navItemHeight}px;
         }
       }
 
       li:not(:first-child) {
         background: ${colors.darkBlue};
-        border-bottom: ${colors.cream} 2px dashed;
+        border-bottom: ${colors.cream} 1px dashed;
         display: none;
       }
 
@@ -128,7 +128,7 @@ const NavContainer = styled.nav`
     }
 
     .nav-icon {
-      display: flex;
+      line-height: ${navItemHeight}px;
       padding-right: ${spacing.sm}px;
       z-index: 11;
     }
