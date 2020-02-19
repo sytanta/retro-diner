@@ -1,62 +1,10 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
 import { fontFamily, spacing, colors } from "../../theme"
 
-const Subscribe = ({ className }) => {
-  const [email, setEmail] = useState("")
-  const [subscriptionState, setSubscriptionState] = useState(null)
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.currentTarget.value)
-
-    setSubscriptionState(null)
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    if (!email.trim()) {
-      return
-    }
-
-    setSubscriptionState(null)
-
-    const result = await addToMailchimp(email)
-
-    setSubscriptionState(result.result && result.result === "success")
-  }
-
-  return (
-    <div className={className}>
-      <h2>Follow Us By Email</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="subscribe"
-          placeholder="Enter Your Email Here..."
-          onChange={handleEmailChange}
-        />
-        <input type="submit" value="" />
-      </form>
-      {subscriptionState === null ? (
-        ""
-      ) : subscriptionState === true ? (
-        <span>Thanks for subscribing!</span>
-      ) : (
-        <span>Error, please try again!</span>
-      )}
-    </div>
-  )
-}
-
-Subscribe.propTypes = {
-  className: PropTypes.string,
-}
-
-const StyledSubscribe = styled(Subscribe)`
+const Container = styled.div`
   color: ${colors.cream};
   font-family: ${fontFamily.nunito};
   font-size: 12px;
@@ -101,4 +49,51 @@ const StyledSubscribe = styled(Subscribe)`
   }
 `
 
-export default StyledSubscribe
+const Subscribe = ({ className }) => {
+  const [email, setEmail] = useState("")
+  const [subscriptionState, setSubscriptionState] = useState(null)
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.currentTarget.value)
+
+    setSubscriptionState(null)
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (!email.trim()) {
+      return
+    }
+
+    setSubscriptionState(null)
+
+    const result = await addToMailchimp(email)
+
+    setSubscriptionState(result.result && result.result === "success")
+  }
+
+  return (
+    <Container>
+      <h2>Follow Us By Email</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="subscribe"
+          placeholder="Enter Your Email Here..."
+          onChange={handleEmailChange}
+        />
+        <input type="submit" value="" />
+      </form>
+      {subscriptionState === null ? (
+        ""
+      ) : subscriptionState === true ? (
+        <span>Thanks for subscribing!</span>
+      ) : (
+        <span>Error, please try again!</span>
+      )}
+    </Container>
+  )
+}
+
+export default Subscribe
