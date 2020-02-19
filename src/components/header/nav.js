@@ -98,7 +98,7 @@ const NavContainer = styled.nav`
       li {
         float: none;
         height: ${navItemHeight}px;
-        padding-left: ${spacing.md}px;
+        padding: 0 ${spacing.md}px;
 
         a {
           display: block;
