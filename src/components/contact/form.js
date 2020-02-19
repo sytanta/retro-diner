@@ -137,7 +137,7 @@ const Form = ({ className }) => {
         {messageState === null ? (
           ""
         ) : messageState === true ? (
-          <span>Your message was sent successfully! We'll be in touch.</span>
+          <span>Your message was sent successfully! We'll contact you shortly.</span>
         ) : (
           <span>Error, please try again!</span>
         )}
