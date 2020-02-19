@@ -12,6 +12,8 @@ const activeNavLinkStyle = {
   color: colors.cream,
 }
 
+const navItemHeight = 68;
+
 const NavLink = ({ to, children, ...props }) => (
   <NLink to={to} activeStyle={activeNavLinkStyle} {...props}>
     {children}
@@ -23,6 +25,7 @@ const ContainerRoot = styled.div`
   display: flex;
   justify-content: space-between;
   height: 70px;
+  position: relative;
 
   @media (max-width: ${breakpoints.tablet}px) {
     &.max-width {
@@ -35,10 +38,9 @@ const NavContainer = styled.nav`
   color: ${colors.lightBlue};
   display: flex;
   justify-content: space-between;
-  position: relative;
 
   & > * {
-    height: 68px;
+    height: ${navItemHeight}px;
   }
 
   ul.navigation {
@@ -88,28 +90,32 @@ const NavContainer = styled.nav`
 
     ul.navigation {
       display: block;
-      padding-left: ${spacing.md}px;
       position: absolute;
       width: 100%;
       z-index: 10;
 
       li {
-        display: flex;
+        float: none;
+        height: ${navItemHeight}px;
+        padding-left: ${spacing.md}px;
+
+        a {
+          display: block;
+          line-height: ${navItemHeight}px;
+        }
       }
 
       li:not(:first-child) {
         background: ${colors.darkBlue};
+        border-bottom: ${colors.cream} 2px dashed;
         display: none;
       }
 
-      li {
-        align-items: center;
-        float: none;
-        height: 68px;
-        padding-left: 20px;
+      li:last-child {
+        border-bottom: none;
       }
 
-      &.nav-mobile {
+      &.nav-open {
         li {
           display: flex;
         }
@@ -130,34 +136,32 @@ const NavContainer = styled.nav`
 `
 
 const Nav = ({ waitress }) => {
-  const [navMobile, setNavMobile] = useState(false)
+  const [navOpen, toggleNav] = useState(false)
 
   const toggleNavMobile = () => {
-    setNavMobile(!navMobile)
+    toggleNav(!navOpen)
   }
 
   return (
     <ContainerRoot className="max-width">
       <NavContainer>
-        <ul className={`navigation ${navMobile ? "nav-mobile" : ""}`}>
+        <ul className={`navigation ${navOpen ? "nav-open" : ""}`}>
           <li>
-            <NavLink to="/" partiallyActive={false}>Home</NavLink>
+            <NavLink to="/" partiallyActive={false}>
+              Home
+            </NavLink>
           </li>
           <li>
             <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <NavLink to="/menu">
-              Menu
-            </NavLink>
+            <NavLink to="/menu">Menu</NavLink>
           </li>
           <li>
             <NavLink to="/contact">Contact</NavLink>
           </li>
           <li>
-            <NavLink to="/blog">
-              Blog
-            </NavLink>
+            <NavLink to="/blog">Blog</NavLink>
           </li>
         </ul>
         <div className="nav-icon">
