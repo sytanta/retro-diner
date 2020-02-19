@@ -41,13 +41,14 @@ const StyledMenuContainer = styled.div`
       font-size: 24px;
       font-weight: normal;
       text-decoration: none;
+      width: calc(100% - 90px);
     }
   }
 
   p {
     font-family: ${fontFamily.nunito};
     font-size: 16px;
-    width: calc(100% - 100px);
+    width: calc(100% - 90px);
   }
 
   span {

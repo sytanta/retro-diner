@@ -66,7 +66,7 @@ const Container = styled.div`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
-    display: none;
+    width: auto;
   }
 `
 
