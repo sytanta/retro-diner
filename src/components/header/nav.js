@@ -98,12 +98,11 @@ const NavContainer = styled.nav`
       li {
         float: none;
         height: ${navItemHeight}px;
-        position: relative;
+        padding: 0 ${spacing.md}px;
 
         a {
           display: block;
           line-height: ${navItemHeight}px;
-          padding: 0 ${spacing.md}px;
         }
       }
 
@@ -119,7 +118,7 @@ const NavContainer = styled.nav`
 
       &.nav-open {
         li {
-          display: flex;
+          display: block;
         }
       }
     }
