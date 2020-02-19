@@ -100,7 +100,6 @@ const NavContainer = styled.nav`
 
         a {
           display: block;
-          padding-left: ${spacing.md}px;
           line-height: ${navItemHeight}px;
         }
       }
