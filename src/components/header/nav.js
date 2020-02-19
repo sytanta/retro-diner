@@ -85,6 +85,7 @@ const NavContainer = styled.nav`
   }
 
   @media (max-width: ${breakpoints.tablet}px) {
+    justify-content: end;
     width: 100%;
 
     ul.navigation {
@@ -97,6 +98,7 @@ const NavContainer = styled.nav`
       li {
         float: none;
         height: ${navItemHeight}px;
+        padding-left: ${spacing.md}px;
 
         a {
           display: block;
