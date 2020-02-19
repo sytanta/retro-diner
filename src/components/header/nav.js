@@ -128,7 +128,7 @@ const NavContainer = styled.nav`
     }
 
     .nav-icon {
-      display: block;
+      display: flex;
       line-height: ${navItemHeight}px;
       padding-right: ${spacing.sm}px;
       position: absolute;
