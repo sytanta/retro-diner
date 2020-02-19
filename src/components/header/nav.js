@@ -98,6 +98,7 @@ const NavContainer = styled.nav`
       li {
         float: none;
         height: ${navItemHeight}px;
+        position: relative;
 
         a {
           display: block;
