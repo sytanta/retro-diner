@@ -12,7 +12,7 @@ const activeNavLinkStyle = {
   color: colors.cream,
 }
 
-const navItemHeight = 68;
+const navItemHeight = 68
 
 const NavLink = ({ to, children, ...props }) => (
   <NLink to={to} activeStyle={activeNavLinkStyle} {...props}>
@@ -91,6 +91,7 @@ const NavContainer = styled.nav`
     ul.navigation {
       display: block;
       position: absolute;
+      top: 0;
       width: 100%;
       z-index: 10;
 
@@ -128,6 +129,7 @@ const NavContainer = styled.nav`
     }
 
     .nav-icon {
+      display: block;
       line-height: ${navItemHeight}px;
       padding-right: ${spacing.sm}px;
       z-index: 11;
