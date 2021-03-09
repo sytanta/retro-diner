@@ -77,10 +77,14 @@ const NavContainer = styled.nav`
         display: none;
 
         button {
+            align-content: center;
+            color: ${colors.lightBlue};
+            cursor: pointer;
             background: transparent;
             border: none;
-            color: ${colors.lightBlue};
+            display: flex;
             font-size: 24px;
+            justify-content: center;
         }
     }
 
@@ -95,6 +99,7 @@ const NavContainer = styled.nav`
             z-index: 10;
 
             li {
+                display: block;
                 float: none;
                 height: ${navItemHeight}px;
                 padding: 0 ${spacing.md}px;
@@ -108,7 +113,8 @@ const NavContainer = styled.nav`
             li:not(:first-child) {
                 background: ${colors.darkBlue};
                 border-bottom: ${colors.cream} 1px dashed;
-                display: none;
+                transform: scaleY(0);
+                transition: transform 0.2s linear;
             }
 
             li:last-child {
@@ -117,7 +123,7 @@ const NavContainer = styled.nav`
 
             &.nav-open {
                 li {
-                    display: block;
+                    transform: scaleY(1);
                 }
             }
         }
@@ -139,10 +145,30 @@ const NavContainer = styled.nav`
     }
 `
 
+const links = [
+    { name: 'Home', link: '/' },
+    { name: 'About', link: '/about' },
+    { name: 'Menu', link: '/menu' },
+    { name: 'Contact', link: '/contact' },
+    { name: 'Blog', link: '/blog' },
+]
+
 const Nav = ({ waitress }) => {
     const [navOpen, toggleNav] = useState(false)
 
-    const toggleNavMobile = () => {
+    const toggleNavMobile = (e) => {
+        if (
+            window &&
+            window.matchMedia(`(min-width: ${+breakpoints.tablet + 1}px)`)
+                .matches
+        ) {
+            return
+        }
+
+        if (e.target.textContent === 'Home' && navOpen === false) {
+            return
+        }
+
         toggleNav(!navOpen)
     }
 
@@ -150,23 +176,25 @@ const Nav = ({ waitress }) => {
         <ContainerRoot className="max-width">
             <NavContainer>
                 <ul className={`navigation ${navOpen ? 'nav-open' : ''}`}>
-                    <li>
-                        <NavLink to="/" partiallyActive={false}>
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about">About</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/menu">Menu</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contact">Contact</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/blog">Blog</NavLink>
-                    </li>
+                    {links.map((item) => {
+                        const { link, name } = item
+
+                        if (link === '/') {
+                            return (
+                                <li key={link} onClick={toggleNavMobile}>
+                                    <NavLink to="/" partiallyActive={false}>
+                                        Home
+                                    </NavLink>
+                                </li>
+                            )
+                        }
+
+                        return (
+                            <li key={link} onClick={toggleNavMobile}>
+                                <NavLink to={link}>{name}</NavLink>
+                            </li>
+                        )
+                    })}
                 </ul>
                 <div className="nav-icon">
                     <button onClick={toggleNavMobile}>
