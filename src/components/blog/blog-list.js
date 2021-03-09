@@ -1,33 +1,33 @@
-import React from "react"
-import PropTypes from "prop-types"
-import styled from "styled-components"
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import { spacing, breakpoints } from "../../theme"
+import { spacing, breakpoints } from '../../theme'
 
-import BlogEmpty from "./blog-empty"
-import BlogItem from "./blog-item"
+import BlogEmpty from './blog-empty'
+import BlogItem from './blog-item'
 
 const StyledList = styled.div`
-  margin: 0 0 ${spacing.lg}px;
-  width: calc(66.66% - 20px);
+    margin: 0 0 ${spacing.lg}px;
+    width: calc(66.66% - 20px);
 
-  @media (max-width: ${breakpoints.tablet}px) {
-    width: auto;
-  }
+    @media (max-width: ${breakpoints.tablet}px) {
+        width: auto;
+    }
 `
 
 const BlogList = ({ blogs }) => {
-  const content = blogs.length ? (
-    blogs.map(({ node: blog }) => <BlogItem key={blog.id} blog={blog} />)
-  ) : (
-    <BlogEmpty />
-  )
+    const content = blogs.length ? (
+        blogs.map(({ node: blog }) => <BlogItem key={blog.id} blog={blog} />)
+    ) : (
+        <BlogEmpty />
+    )
 
-  return <StyledList>{content}</StyledList>
+    return <StyledList>{content}</StyledList>
 }
 
 BlogList.propTypes = {
-  blogs: PropTypes.array.isRequired,
+    blogs: PropTypes.array.isRequired,
 }
 
 export default BlogList

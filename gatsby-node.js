@@ -52,7 +52,6 @@ exports.createPages = async ({ graphql, actions }) => {
           menuFileLink: `/download/${node.frontmatter.slug}.pdf`,
         },
       })
-      console.log('111111111111111111111111111111111111111111', node.fileAbsolutePath)
     }
 
     // Blog posts

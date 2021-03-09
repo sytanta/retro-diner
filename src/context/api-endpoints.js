@@ -1,2 +1,2 @@
 export const netlifyContactFormEndpoint =
-  "/.netlify/functions/send-contact-email"
+    '/.netlify/functions/send-contact-email'
