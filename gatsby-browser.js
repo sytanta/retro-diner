@@ -3,6 +3,10 @@ import React from 'react'
 import './src/css/global.css'
 import Layout from './src/components/layout'
 
+export const onRouteUpdate = ({ location, prevLocation }) => {
+    window.prevPath = prevLocation ? prevLocation.pathname : null
+}
+
 export const wrapPageElement = ({ element, props }) => {
     return <Layout {...props}>{element}</Layout>
 }
