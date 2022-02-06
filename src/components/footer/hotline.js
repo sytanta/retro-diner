@@ -4,6 +4,10 @@ import styled from 'styled-components'
 import { spacing, breakpoints } from '../../theme'
 
 const Container = styled.div`
+    h3 {
+        color: #ebe9d7 !important;
+    }
+
     ul {
         display: flex;
         list-style-type: none;
