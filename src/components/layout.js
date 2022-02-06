@@ -73,10 +73,25 @@ const variants = {
 
 const Layout = ({ location, children, ...other }) => {
     const [loading, setLoading] = useState(false)
+    const [linkClicked, setLinkClicked] = useState(false)
 
     useEffect(() => {
-        setLoading(!!window.prevPath && window.prevPath !== location.pathname)
-    }, [location.pathname])
+        window.onclick = (e) => {
+            if (e?.target?.tagName?.toLowerCase() === 'a') {
+                setLinkClicked(true)
+            }
+        }
+    }, [])
+
+    useEffect(() => {
+        if (linkClicked) {
+            setLinkClicked(false)
+            setLoading(
+                // !!window.prevPath &&
+                window.prevPath !== location.pathname
+            )
+        }
+    }, [location.pathname, linkClicked])
 
     return (
         <>
