@@ -38,6 +38,14 @@ const Container = styled.div`
                 background-position: 0 -495px;
             }
         }
+        a.googleplus {
+            background: transparent url('/images/icon.png') no-repeat 0 -405px;
+            content: 'googleplus';
+
+            :hover {
+                background-position: 0 -316px;
+            }
+        }
     }
 
     @media (max-width: ${breakpoints.mobile}px) {
@@ -74,14 +82,16 @@ const Hotline = () => (
                     {' '}
                 </a>
             </li>
-            {/* <li>
-        <a
-          href="https://www.linkedin.com/in/tan-sy-688b8a87/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="googleplus"
-        ></a>
-      </li> */}
+            <li>
+                <a
+                    href="https://www.linkedin.com/in/tan-sy-688b8a87/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="googleplus"
+                >
+                    {' '}
+                </a>
+            </li>
         </ul>
     </Container>
 )
