@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Container from '../components/blog/container'
 import MenuDetail from '../components/menu/menu-detail'
 import MenuList from '../components/menu/menu-list'
 
 const MenuTemplate = ({ data: { menu, allMenus }, pageContext }) => (
     <>
-        <SEO title={`${menu.frontmatter.title} Menu`} />
+        <Seo title={`${menu.frontmatter.title} Menu`} />
         <Container spaceBetween noMarginTop>
             <MenuDetail menu={menu} />
             <MenuList

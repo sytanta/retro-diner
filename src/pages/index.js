@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Specials from '../components/home/specials'
 
 const StyledContainer = styled.div`
@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
 
 const IndexPage = ({ data }) => (
     <>
-        <SEO title="Home" />
+        <Seo title="Home" />
         <StyledContainer className="featured max-width">
             <Link to="/menu/burger">
                 <Img

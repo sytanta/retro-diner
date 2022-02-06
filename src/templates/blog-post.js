@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Container from '../components/blog/container'
 import BlogContent from '../components/blog/blog-post/blog-content'
 import Sidebar from '../components/blog/sidebar'
 
 const BlogPostTemplate = ({ data: { markdownRemark } }) => (
     <>
-        <SEO title={markdownRemark.frontmatter.title} />
+        <Seo title={markdownRemark.frontmatter.title} />
         <Container>
             <BlogContent blog={markdownRemark} />
             <Sidebar />

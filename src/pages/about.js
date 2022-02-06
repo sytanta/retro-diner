@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 
 import { colors, fontFamily, spacing, breakpoints } from '../theme'
 
@@ -62,7 +62,7 @@ const StyledInnerContainer = styled.div`
 
 const AboutPage = () => (
     <>
-        <SEO title="About us" />
+        <Seo title="About us" />
         <StyledContainer className="max-width">
             <StyledInnerContainer>
                 <h1 className="page-header">About</h1>

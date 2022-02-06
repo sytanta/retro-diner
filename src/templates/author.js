@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Container from '../components/blog/container'
 import BlogList from '../components/blog/blog-list'
 import Sidebar from '../components/blog/sidebar'
 
 const AuthorTemplate = ({ data: { posts } }) => (
     <>
-        <SEO title="Blogs by author" />
+        <Seo title="Blogs by author" />
         <Container>
             <BlogList blogs={posts.edges} />
             <Sidebar />

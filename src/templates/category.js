@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Container from '../components/blog/container'
 import BlogList from '../components/blog/blog-list'
 import Sidebar from '../components/blog/sidebar'
 
 const CategoryTemplate = ({ data: { posts } }) => (
     <>
-        <SEO title="Blogs by category" />
+        <Seo title="Blogs by category" />
         <Container>
             <BlogList blogs={posts.edges} />
             <Sidebar />

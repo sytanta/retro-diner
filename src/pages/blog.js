@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Container from '../components/blog/container'
 import BlogList from '../components/blog/blog-list'
 import Sidebar from '../components/blog/sidebar'
 
 const BlogPage = ({ data }) => (
     <>
-        <SEO title="Blogs" />
+        <Seo title="Blogs" />
         <Container>
             <BlogList blogs={data.allMarkdownRemark.edges} />
             <Sidebar />
